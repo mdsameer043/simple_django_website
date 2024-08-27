@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>signin</title>
+    <style>
+        .body {
+            padding: 0%;
+            margin: 0%;
+        }
+
+        .form-floating {
+            padding: 1vh;
+        }
+
+        .form-signup {
+            padding: 20vh 35vw;
+        }
+
+        .link-signin {
+            padding: 2vh;
+        }
+
+        #invalid_notification {
+            color: red;
+            padding-left: 18vw;
+            font-size: 15px;
+        }
+        .back_a{
+            position: absolute;
+            left: 20vw;
+            top: 19vh;
+          }
+          .back_b{
+            position: absolute;
+            left: 21.5vw;
+            top: 19.9vh;
+          }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body class="body">
+    <main class="form-signup w-100 m-auto">
+        <form action="/login/" method="POST">
+            {% csrf_token %}
+          <input type="text" name="signinValidation" value="signin" style="display: block;font-size:0px;border:0px;visibility:hidden;">
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            <a href="/login" class="nav-link"><h4 class="back_a">&#8592;</h4><h6  class="back_b">Back</h6></a>
+
+            <div class="form-floating">
+                <input type="email" name="signinEmail" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" name="signinPassword" class="form-control" id="floatingPassword"
+                    placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingConfirmPassword" name="signinConfirmPassword" placeholder="Password">
+                <label for="floatingConfirmPassword">confirm Password</label>
+            </div>
+            <h1 id="invalid_notification">{% if invalid %}password didn't matched{% endif %}</h1>
+            <div class="link-signin">
+                <h6>Already have an account? <a href="/login"> sign up </a></h6>
+            </div>
+
+            <button class="btn btn-primary w-100 py-2" id="submit">Sign in</button>
+
+        </form>
+
+    </main>
+    <script>
+        document.querySelector("#submit").addEventListener("click", function () {
+            document.forms.form.submit;
+        })
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>

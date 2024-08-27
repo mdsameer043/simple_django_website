@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+contact us
+{% endblock title %}
+
+{% block body %}
+<div class="container-fluid mx-0 mb-3">
+    <!-- <img src="https://source.unsplash.com/1200x400/?phone,contact" class="d-block w-100 my-2" alt=""> -->
+    <img src="/static/img/t4.jpg" class="d-block w-100 my-2" class="d-block w-100 my-2" alt="">
+
+    <!-- <h2 class="contact" style="font-size:80px;color:black;position:absolute;top:41vh;left:38vw;">contact us</h2> -->
+
+</div>
+<div class="container">
+    <h1 class="text-center">Contact us</h1>
+    <form class="my-4" method="post" action="/contact">
+        {% csrf_token %}
+        <div class="form-group my-4">
+            <label for="name">Enter your Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+        </div>
+
+        <div class="form-group my-4">
+            <label for="email">Enter your Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email Address">
+        </div>
+
+        <div class="form-group my-4">
+            <label for="phone">Enter your phone number</label>
+            <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
+        </div>
+
+        <div class="form-group my-4">
+            <label for="desc">Tell me what you want to cantact me for.....</label>
+            <textarea class="form-control" id="desc" name="desc" rows="3" placeholder="Describe your problem"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+</div>
+
+{% endblock body %}
